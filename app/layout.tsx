@@ -4,7 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "./analytics";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import { doge } from "./doge";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -53,11 +52,6 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(${doge.toString()})();`,
-          }}
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

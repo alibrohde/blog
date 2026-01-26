@@ -9,8 +9,9 @@ Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://verce
 - Blog posts powered by [Beehiiv](https://www.beehiiv.com/) CMS
 - Email subscriptions via Beehiiv API
 - Light/dark mode toggle
-- View counts stored in Redis
 - Testimonials section
+- Reading time estimates
+- RSS feed
 - Responsive design
 
 ## Setup
@@ -22,8 +23,6 @@ Create a `.env.local` file:
 ```
 BEEHIIV_API_KEY=your_api_key
 BEEHIIV_PUBLICATION_ID=pub_your_publication_id
-UPSTASH_REDIS_REST_URL=your_redis_url
-UPSTASH_REDIS_REST_TOKEN=your_redis_token
 ```
 
 ### Development
@@ -43,8 +42,7 @@ npx vercel --prod
 
 ## Stack
 
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
 - Tailwind CSS
 - Beehiiv API for blog content
-- Upstash Redis for view counts
 - Vercel for hosting

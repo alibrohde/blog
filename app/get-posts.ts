@@ -1,13 +1,8 @@
-import redis from "./redis";
-import commaNumber from "comma-number";
-
 export type Post = {
   id: string;
   slug: string;
   date: string;
   title: string;
-  views: number;
-  viewsFormatted: string;
   thumbnail?: string;
   subtitle?: string;
   readingTime?: string;
@@ -15,11 +10,6 @@ export type Post = {
 
 export type PostWithContent = Post & {
   content: string;
-};
-
-// shape of the HSET in redis
-type Views = {
-  [key: string]: string;
 };
 
 type BeehiivPost = {
@@ -79,10 +69,8 @@ function calculateReadingTime(content: string): string {
 
 export const getPosts = async (): Promise<Post[]> => {
   const beehiivPosts = await fetchBeehiivPosts();
-  const allViews: null | Views = redis ? await redis.hgetall("views") : null;
 
   const posts = beehiivPosts.map((post): Post => {
-    const views = Number(allViews?.[post.slug] ?? 0);
     const dateToUse = post.displayed_date || post.publish_date;
     return {
       id: post.slug,
@@ -91,8 +79,6 @@ export const getPosts = async (): Promise<Post[]> => {
       title: post.title,
       subtitle: post.subtitle,
       thumbnail: post.thumbnail_url,
-      views,
-      viewsFormatted: commaNumber(views),
     };
   });
 
@@ -105,9 +91,6 @@ export const getPost = async (slug: string): Promise<PostWithContent | null> => 
 
   if (!post) return null;
 
-  const allViews: null | Views = redis ? await redis.hgetall("views") : null;
-  const views = Number(allViews?.[post.slug] ?? 0);
-
   const dateToUse = post.displayed_date || post.publish_date;
   const content = post.content?.free?.web || "";
   return {
@@ -119,7 +102,5 @@ export const getPost = async (slug: string): Promise<PostWithContent | null> => 
     thumbnail: post.thumbnail_url,
     content,
     readingTime: calculateReadingTime(content),
-    views,
-    viewsFormatted: commaNumber(views),
   };
 };

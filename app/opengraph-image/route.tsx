@@ -47,7 +47,6 @@ export async function GET() {
                   {firstOfYear ? year : ""}
                 </div>
                 <div tw="flex grow">{post.title}</div>
-                <div tw="flex text-gray-500 text-[24px]">{post?.viewsFormatted}</div>
               </div>
             );
           })}

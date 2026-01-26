@@ -47,10 +47,10 @@ export async function GET(_req: Request, props) {
       >
         <header tw="flex text-[36px] w-full">
           <div style={font("Geist Medium")}>
-            Guillermo Rauch
+            Ali Rohde
           </div>
           <div tw="grow" />
-          <div tw="text-[28px]">rauchg.com</div>
+          <div tw="text-[28px]">alirohde.com</div>
         </header>
 
         <main tw="flex grow pb-3 flex-col items-center justify-center">
@@ -67,7 +67,7 @@ export async function GET(_req: Request, props) {
             tw="mt-5 flex text-3xl text-gray-500"
             style={font("Geist Mono")}
           >
-            {post.date}{post.views >= 10000 ? ` – ${post.viewsFormatted} views` : ''}
+            {post.date}
           </div>
         </main>
       </div>
