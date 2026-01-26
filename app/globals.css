@@ -93,21 +93,31 @@
     @apply bg-[#1C1C1C];
   }
 
-  /* Global text selection styles */
+  /* Global text selection styles with gradient accent */
   ::selection {
-    @apply bg-black text-white;
+    @apply bg-gradient-to-r from-neutral-800 to-neutral-600 text-white;
+    background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+    color: white;
   }
 
   ::-moz-selection {
-    @apply bg-black text-white;
+    background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+    color: white;
   }
 
   /* Dark mode selection styles */
   .dark ::selection {
-    @apply bg-white text-black;
+    background: linear-gradient(135deg, #e5e5e5 0%, #a3a3a3 100%);
+    color: black;
   }
 
   .dark ::-moz-selection {
-    @apply bg-white text-black;
+    background: linear-gradient(135deg, #e5e5e5 0%, #a3a3a3 100%);
+    color: black;
+  }
+
+  /* Link hover accent */
+  a {
+    @apply transition-colors duration-150;
   }
 }

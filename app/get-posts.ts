@@ -10,6 +10,7 @@ export type Post = {
   viewsFormatted: string;
   thumbnail?: string;
   subtitle?: string;
+  readingTime?: string;
 };
 
 export type PostWithContent = Post & {
@@ -69,6 +70,13 @@ function formatDate(timestamp: number): string {
   });
 }
 
+function calculateReadingTime(content: string): string {
+  const text = content.replace(/<[^>]*>/g, ''); // Strip HTML
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / 200); // 200 words per minute
+  return `${minutes} min read`;
+}
+
 export const getPosts = async (): Promise<Post[]> => {
   const beehiivPosts = await fetchBeehiivPosts();
   const allViews: null | Views = redis ? await redis.hgetall("views") : null;
@@ -101,6 +109,7 @@ export const getPost = async (slug: string): Promise<PostWithContent | null> => 
   const views = Number(allViews?.[post.slug] ?? 0);
 
   const dateToUse = post.displayed_date || post.publish_date;
+  const content = post.content?.free?.web || "";
   return {
     id: post.slug,
     slug: post.slug,
@@ -108,7 +117,8 @@ export const getPost = async (slug: string): Promise<PostWithContent | null> => 
     title: post.title,
     subtitle: post.subtitle,
     thumbnail: post.thumbnail_url,
-    content: post.content?.free?.web || "",
+    content,
+    readingTime: calculateReadingTime(content),
     views,
     viewsFormatted: commaNumber(views),
   };
