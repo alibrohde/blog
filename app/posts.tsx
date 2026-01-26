@@ -27,38 +27,20 @@ export function Posts({ posts: initialPosts }) {
 function List({ posts }) {
   return (
     <ul>
-      {posts.map((post, i: number) => {
+      {posts.map((post) => {
         const year = getYear(post.date);
-        const firstOfYear =
-          !posts[i - 1] || getYear(posts[i - 1].date) !== year;
-        const lastOfYear = !posts[i + 1] || getYear(posts[i + 1].date) !== year;
 
         return (
           <li key={post.id} className="group">
             <Link href={`/p/${post.slug}`}>
-              <span
-                className={`flex
-                ${!firstOfYear ? "border-t-0" : ""}
-                ${lastOfYear ? "border-b-0" : ""}
-              `}
-              >
-                <span
-                  className={`py-2 flex grow items-center ${
-                    !firstOfYear ? "ml-10 md:ml-14" : ""
-                  }`}
-                >
-                  {firstOfYear && (
-                    <span className="w-10 md:w-14 inline-block self-start shrink-0 text-neutral-500 text-xs dark:text-neutral-500 mt-0.5">
-                      {year}
-                    </span>
-                  )}
-
-                  <span className="grow dark:text-gray-100">
-                    <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-all rounded-xl py-0.5 px-1.5">
-                      {post.title}
-                    </span>
+              <span className="flex py-2 items-center">
+                <span className="w-10 md:w-14 inline-block self-start shrink-0 text-neutral-500 text-xs dark:text-neutral-500 mt-0.5">
+                  {year}
+                </span>
+                <span className="grow dark:text-gray-100">
+                  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-all rounded-xl py-0.5 px-1.5">
+                    {post.title}
                   </span>
-
                 </span>
               </span>
             </Link>

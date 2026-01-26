@@ -27,6 +27,7 @@ type BeehiivPost = {
   title: string;
   subtitle: string;
   publish_date: number;
+  displayed_date: number | null;
   thumbnail_url: string;
   content?: {
     free?: {
@@ -74,10 +75,11 @@ export const getPosts = async (): Promise<Post[]> => {
 
   const posts = beehiivPosts.map((post): Post => {
     const views = Number(allViews?.[post.slug] ?? 0);
+    const dateToUse = post.displayed_date || post.publish_date;
     return {
       id: post.slug,
       slug: post.slug,
-      date: formatDate(post.publish_date),
+      date: formatDate(dateToUse),
       title: post.title,
       subtitle: post.subtitle,
       thumbnail: post.thumbnail_url,
@@ -98,10 +100,11 @@ export const getPost = async (slug: string): Promise<PostWithContent | null> => 
   const allViews: null | Views = redis ? await redis.hgetall("views") : null;
   const views = Number(allViews?.[post.slug] ?? 0);
 
+  const dateToUse = post.displayed_date || post.publish_date;
   return {
     id: post.slug,
     slug: post.slug,
-    date: formatDate(post.publish_date),
+    date: formatDate(dateToUse),
     title: post.title,
     subtitle: post.subtitle,
     thumbnail: post.thumbnail_url,
