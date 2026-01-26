@@ -30,39 +30,35 @@ export function Subscribe() {
 
   if (status === "success") {
     return (
-      <div className="border border-neutral-200 dark:border-neutral-700 rounded-lg p-6 my-8">
-        <p className="text-center text-neutral-600 dark:text-neutral-400">
-          Thanks for subscribing!
+      <div className="my-12">
+        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+          You're subscribed.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="border border-neutral-200 dark:border-neutral-700 rounded-lg p-6 my-8">
-      <h3 className="font-semibold mb-2 dark:text-gray-100">Subscribe</h3>
-      <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-        Get new posts delivered to your inbox.
-      </p>
-      <form onSubmit={handleSubmit} className="flex gap-2">
+    <div className="my-12">
+      <form onSubmit={handleSubmit} className="flex items-center gap-4">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
+          placeholder="Subscribe via email"
           required
-          className="flex-grow px-3 py-2 text-sm border border-neutral-200 dark:border-neutral-700 rounded-md bg-white dark:bg-neutral-900 focus:outline-none focus:ring-2 focus:ring-neutral-400"
+          className="flex-grow text-sm bg-transparent border-b border-neutral-300 dark:border-neutral-600 py-2 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="px-4 py-2 text-sm bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-md hover:bg-neutral-700 dark:hover:bg-neutral-300 disabled:opacity-50 transition-colors"
+          className="text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 disabled:opacity-50 transition-colors"
         >
-          {status === "loading" ? "..." : "Subscribe"}
+          {status === "loading" ? "..." : "→"}
         </button>
       </form>
       {status === "error" && (
-        <p className="text-sm text-red-500 mt-2">Something went wrong. Please try again.</p>
+        <p className="text-xs text-neutral-500 mt-2">Something went wrong.</p>
       )}
     </div>
   );
