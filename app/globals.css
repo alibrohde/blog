@@ -88,11 +88,9 @@
     @apply bg-[#fcfcfc];
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      @apply bg-[#1C1C1C];
-    }
+  .dark {
+    color-scheme: dark;
+    @apply bg-[#1C1C1C];
   }
 
   /* Global text selection styles */
@@ -105,13 +103,11 @@
   }
 
   /* Dark mode selection styles */
-  @media (prefers-color-scheme: dark) {
-    ::selection {
-      @apply bg-white text-black;
-    }
+  .dark ::selection {
+    @apply bg-white text-black;
+  }
 
-    ::-moz-selection {
-      @apply bg-white text-black;
-    }
+  .dark ::-moz-selection {
+    @apply bg-white text-black;
   }
 }
