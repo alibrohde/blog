@@ -1,5 +1,10 @@
 const testimonials = [
   {
+    name: "Michelle Lee, PhD",
+    title: "CEO, Hedra",
+    quote: "Ali is a force of nature, delivering the depth and quality of support you'd expect from a full institutional VC team, yet operating as a team of one. She's the kind of partner every founder deserves.",
+  },
+  {
     name: "Dan Robinson",
     title: "CEO, Detail",
     quote: "Most early-stage VCs are not useful. Ali is useful. She will do real work for you. She will send you good candidates, scout good customer intros, draft that blog post for you. And she does everything fast. You should take her money if you have the chance!",
@@ -8,11 +13,6 @@ const testimonials = [
     name: "Yonas Beshawred",
     title: "CEO, StarSling",
     quote: "Outset Capital has been our most useful investor. Ali moved quickly and invested with conviction right after we met - no hesitation, just action. What I appreciate most is that she moves like a founder. She hustles on your behalf and always has a strong sense of urgency.",
-  },
-  {
-    name: "Michelle Lee, PhD",
-    title: "CEO, Hedra",
-    quote: "Ali is a force of nature, delivering the depth and quality of support you'd expect from a full institutional VC team, yet operating as a team of one. She's the kind of partner every founder deserves.",
   },
   {
     name: "Alex Rosenberg",
