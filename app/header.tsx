@@ -1,5 +1,6 @@
 import { Logo } from "./logo";
 import Link from "next/link";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   return (
@@ -45,12 +46,13 @@ export function Header() {
         <a
           href="https://www.outsetcapital.com/"
           target="_blank"
-          className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+          className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap"
         >
 	  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
 	    Outset Capital
 	  </span>
         </a>
+        <ThemeToggle />
       </nav>
     </header>
   );
