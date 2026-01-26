@@ -24,7 +24,7 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="my-12">
-      <h2 className="text-lg font-semibold mb-6 dark:text-gray-100">What founders say</h2>
+      <h2 className="text-xl font-semibold mb-6 dark:text-gray-100">What founders say</h2>
       <div className="space-y-6">
         {testimonials.map((t, i) => (
           <div
