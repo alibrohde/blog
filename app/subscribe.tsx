@@ -31,7 +31,7 @@ export function Subscribe() {
   if (status === "success") {
     return (
       <div className="my-12">
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-[#B8614A] dark:text-[#6BADA3]">
           You're subscribed.
         </p>
       </div>
@@ -47,18 +47,18 @@ export function Subscribe() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Subscribe via email"
           required
-          className="flex-grow text-sm bg-transparent border-b border-neutral-300 dark:border-neutral-600 py-2 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100 transition-colors placeholder:text-neutral-400 dark:placeholder:text-neutral-500"
+          className="flex-grow text-sm bg-transparent border-b border-stone-300 dark:border-stone-600 py-2 focus:outline-none focus:border-[#B8614A] dark:focus:border-[#6BADA3] transition-colors placeholder:text-stone-400 dark:placeholder:text-stone-500"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="text-sm text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 disabled:opacity-50 transition-colors"
+          className="text-sm text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] disabled:opacity-50 transition-colors"
         >
           {status === "loading" ? "..." : "→"}
         </button>
       </form>
       {status === "error" && (
-        <p className="text-xs text-neutral-500 mt-2">Something went wrong.</p>
+        <p className="text-xs text-stone-500 mt-2">Something went wrong.</p>
       )}
     </div>
   );

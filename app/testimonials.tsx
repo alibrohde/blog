@@ -24,18 +24,18 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="my-12">
-      <h2 className="text-xl font-semibold mb-6 dark:text-gray-100">What founders say</h2>
+      <h2 className="text-xl font-semibold mb-6 text-stone-800 dark:text-stone-100">What founders say</h2>
       <div className="space-y-6">
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="relative pl-4 border-l-2 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors"
+            className="relative pl-4 border-l-2 border-[#B8614A]/20 dark:border-[#6BADA3]/20 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 transition-colors"
           >
-            <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-2 italic">
+            <p className="text-sm text-stone-600 dark:text-stone-400 mb-2 italic">
               "{t.quote}"
             </p>
-            <p className="text-sm font-medium dark:text-gray-100">{t.name}</p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-500">{t.title}</p>
+            <p className="text-sm font-medium text-stone-800 dark:text-stone-100">{t.name}</p>
+            <p className="text-xs text-stone-500 dark:text-stone-500">{t.title}</p>
           </div>
         ))}
       </div>

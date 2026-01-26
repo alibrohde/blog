@@ -57,7 +57,7 @@ export default function RootLayout({
             __html: `
               (function() {
                 var theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                if (theme !== 'light') {
                   document.documentElement.classList.add('dark');
                 }
               })();
@@ -66,7 +66,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="dark:text-gray-100 max-w-2xl m-auto">
+      <body className="text-stone-700 dark:text-stone-300 max-w-2xl m-auto">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
           {children}

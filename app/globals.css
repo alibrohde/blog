@@ -23,7 +23,7 @@
 .beehiiv-content h1,
 .beehiiv-content h2,
 .beehiiv-content h3 {
-  @apply font-bold mt-8 mb-4 dark:text-gray-100;
+  @apply font-bold mt-8 mb-4 dark:text-stone-100;
 }
 
 .beehiiv-content h1 {
@@ -43,7 +43,7 @@
 }
 
 .beehiiv-content a {
-  @apply text-blue-600 dark:text-blue-400 underline hover:no-underline;
+  @apply text-[#B8614A] dark:text-[#6BADA3] underline hover:no-underline;
 }
 
 .beehiiv-content ul,
@@ -68,12 +68,12 @@
 }
 
 .beehiiv-content blockquote {
-  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic my-4;
+  @apply border-l-4 border-[#B8614A]/30 dark:border-[#6BADA3]/30 pl-4 italic my-4;
 }
 
 .beehiiv-content pre,
 .beehiiv-content code {
-  @apply bg-gray-100 dark:bg-gray-800 rounded px-1;
+  @apply bg-stone-100 dark:bg-stone-800 rounded px-1;
 }
 
 .beehiiv-content pre {
@@ -85,30 +85,42 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     color-scheme: light;
-    @apply bg-[#fcfcfc];
+    /* Warm cream background */
+    --color-accent: #B8614A;
+    --color-accent-hover: #9A4F3C;
+    --color-accent-subtle: #B8614A1a;
+    @apply bg-[#FAF8F5];
   }
 
   .dark {
     color-scheme: dark;
-    @apply bg-[#1C1C1C];
+    /* Rich charcoal with warm undertone */
+    --color-accent: #6BADA3;
+    --color-accent-hover: #5C9C94;
+    --color-accent-subtle: #6BADA31a;
+    @apply bg-[#1A1918];
   }
 
-  /* Global text selection styles */
+  /* Global text selection styles - uses accent color */
   ::selection {
-    @apply bg-neutral-200 text-neutral-900;
+    background-color: var(--color-accent-subtle);
+    @apply text-stone-900;
   }
 
   ::-moz-selection {
-    @apply bg-neutral-200 text-neutral-900;
+    background-color: var(--color-accent-subtle);
+    @apply text-stone-900;
   }
 
   /* Dark mode selection styles */
   .dark ::selection {
-    @apply bg-neutral-700 text-neutral-100;
+    background-color: var(--color-accent-subtle);
+    @apply text-stone-100;
   }
 
   .dark ::-moz-selection {
-    @apply bg-neutral-700 text-neutral-100;
+    background-color: var(--color-accent-subtle);
+    @apply text-stone-100;
   }
 
   /* Link hover accent */

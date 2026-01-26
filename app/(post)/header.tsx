@@ -14,16 +14,16 @@ export function Header({ posts }: { posts: Post[] }) {
 
   return (
     <>
-      <h1 className="text-2xl font-bold mb-1 dark:text-gray-100">
+      <h1 className="text-2xl font-bold mb-1 text-stone-800 dark:text-stone-100">
         {post.title}
       </h1>
 
-      <p className="font-mono flex text-xs text-neutral-500 dark:text-neutral-500">
+      <p className="font-mono flex text-xs text-stone-500 dark:text-stone-500">
         <span className="flex-grow">
           <span className="hidden md:inline">
             <a
               href="https://twitter.com/RohdeAli"
-              className="hover:text-neutral-800 dark:hover:text-neutral-400"
+              className="hover:text-[#B8614A] dark:hover:text-[#6BADA3]"
               target="_blank"
             >
               @RohdeAli

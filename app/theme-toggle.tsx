@@ -6,12 +6,12 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
   useEffect(() => {
-    // Get initial theme from localStorage or system preference
+    // Get initial theme from localStorage, default to dark
     const stored = localStorage.getItem("theme");
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored);
+    if (stored === "light") {
+      setTheme("light");
     } else {
-      setTheme(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      setTheme("dark");
     }
   }, []);
 
@@ -41,7 +41,7 @@ export function ThemeToggle() {
       className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
+      <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
         {theme === "dark" ? <SunIcon /> : <MoonIcon />}
       </span>
     </button>
