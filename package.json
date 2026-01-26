@@ -1,10 +1,11 @@
 {
-  "name": "rauchg-blog",
+  "name": "alirohde-blog",
   "license": "MIT",
-  "description": "rauchg.com (blog)",
+  "description": "alirohde.com (blog)",
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "16.1.1",
+    "@tailwindcss/typography": "^0.5.19",
     "@upstash/redis": "^1.20.1",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -33,12 +34,6 @@
     "prettier": "^2.8.4",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.9.3"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@vercel/speed-insights",
-      "sharp"
-    ]
   },
   "scripts": {
     "dev": "next dev",

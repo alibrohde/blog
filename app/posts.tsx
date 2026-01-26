@@ -35,7 +35,7 @@ function List({ posts }) {
 
         return (
           <li key={post.id} className="group">
-            <Link href={`/${new Date(post.date).getFullYear()}/${post.id}`}>
+            <Link href={`/p/${post.slug}`}>
               <span
                 className={`flex
                 ${!firstOfYear ? "border-t-0" : ""}
@@ -59,9 +59,6 @@ function List({ posts }) {
                     </span>
                   </span>
 
-                  <span className="text-neutral-500 dark:text-neutral-500 text-xs mt-0.5">
-                    {post.viewsFormatted}
-                  </span>
                 </span>
               </span>
             </Link>

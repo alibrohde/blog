@@ -18,23 +18,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Guillermo Rauch's blog",
+  title: "Ali Rohde's blog",
   description:
-    "Guillermo Rauch is the CEO and founder of Vercel, a software engineer, and the creator of Next.js, Mongoose, Socket.io and other open source libraries.",
+    "Ali Rohde is the Managing Partner at Outset Capital, a venture capital firm investing in AI, devtools, robotics, and future of work companies.",
   openGraph: {
-    title: "Guillermo Rauchg's blog",
+    title: "Ali Rohde's blog",
     description:
-      "Guillermo Rauch is the CEO and founder of Vercel, a software engineer, and the creator of Next.js, Mongoose, Socket.io and other open source libraries.",
-    url: "https://rauchg.com",
-    siteName: "Guillermo Rauchg's blog",
+      "Ali Rohde is the Managing Partner at Outset Capital, a venture capital firm investing in AI, devtools, robotics, and future of work companies.",
+    url: "https://alirohde.com",
+    siteName: "Ali Rohde's blog",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@rauchg",
-    creator: "@rauchg",
+    site: "@RohdeAli",
+    creator: "@RohdeAli",
   },
-  metadataBase: new URL("https://rauchg.com"),
+  metadataBase: new URL("https://alirohde.com"),
 };
 
 export const viewport = {

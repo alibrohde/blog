@@ -2,6 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Beehiiv content styling */
+.beehiiv-content {
+  @apply text-base leading-relaxed;
+}
+
+/* Remove Beehiiv wrapper padding */
+.beehiiv-content > div {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.beehiiv-content .rendered-post,
+.beehiiv-content .bg-wt-background {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.beehiiv-content h1,
+.beehiiv-content h2,
+.beehiiv-content h3 {
+  @apply font-bold mt-8 mb-4 dark:text-gray-100;
+}
+
+.beehiiv-content h1 {
+  @apply text-2xl;
+}
+
+.beehiiv-content h2 {
+  @apply text-xl;
+}
+
+.beehiiv-content h3 {
+  @apply text-lg;
+}
+
+.beehiiv-content p {
+  @apply mb-4;
+}
+
+.beehiiv-content a {
+  @apply text-blue-600 dark:text-blue-400 underline hover:no-underline;
+}
+
+.beehiiv-content ul,
+.beehiiv-content ol {
+  @apply mb-4 pl-6;
+}
+
+.beehiiv-content ul {
+  @apply list-disc;
+}
+
+.beehiiv-content ol {
+  @apply list-decimal;
+}
+
+.beehiiv-content li {
+  @apply mb-2;
+}
+
+.beehiiv-content img {
+  @apply max-w-full h-auto rounded-lg my-4;
+}
+
+.beehiiv-content blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic my-4;
+}
+
+.beehiiv-content pre,
+.beehiiv-content code {
+  @apply bg-gray-100 dark:bg-gray-800 rounded px-1;
+}
+
+.beehiiv-content pre {
+  @apply p-4 overflow-x-auto my-4;
+}
+
 @layer base {
   :root {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
