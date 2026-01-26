@@ -1,57 +1,50 @@
-# blog
+# alirohde.com
 
-This is the blog that powers `rauchg.com`, built on
-[next.js](https://nextjs.org/) and
-deployed to the cloud via [Vercel](https://vercel.com).
+Personal website and blog for Ali Rohde, Managing Partner at [Outset Capital](https://www.outsetcapital.com/).
 
-## How to run
+Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://vercel.com).
 
-First, install [Vercel CLI](https://vercel.com/download).
+## Features
+
+- Blog posts powered by [Beehiiv](https://www.beehiiv.com/) CMS
+- Email subscriptions via Beehiiv API
+- Light/dark mode toggle
+- View counts stored in Redis
+- Testimonials section
+- Responsive design
+
+## Setup
+
+### Environment Variables
+
+Create a `.env.local` file:
+
+```
+BEEHIIV_API_KEY=your_api_key
+BEEHIIV_PUBLICATION_ID=pub_your_publication_id
+UPSTASH_REDIS_REST_URL=your_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_redis_token
+```
 
 ### Development
 
-```
-vc dev
+```bash
+npm install
+npm run dev
 ```
 
 ### Deployment
 
-#### Staging
+Push to `main` branch to trigger automatic Vercel deployment, or:
 
 ```bash
-vc
+npx vercel --prod
 ```
 
-This is the equivalent of submitting a PR with the [GitHub integration](https://vercel.com/github)
+## Stack
 
-#### Production
-
-```bash
-vc --prod
-```
-
-This is the equivalent of `git push` to `master` (or merging a PR to master)
-
-## Architecture
-
-### Pure components
-
-Every stateless pure component is found under `./components`.
-
-Every component that has to do with styling the post's markup
-is found under `./components/post/`
-
-These components make up the _style guide_ of the application.
-
-### Blog posts
-
-Every blog post is a static page hosted under `pages/$year/`.
-
-This allows every post to load arbitrary modules, have custom layouts
-and take advantage of automatic code splitting and lazy loading.
-
-This means that the bloat of a single post doesn't "rub off on" the
-rest of the site.
-
-An index of all posts is maintained in JSON format as `./posts.json`
-for practical reasons.
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Beehiiv API for blog content
+- Upstash Redis for view counts
+- Vercel for hosting
