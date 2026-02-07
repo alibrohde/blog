@@ -40,16 +40,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const components = useMDXComponents({});
 
   return (
-    <article className="text-gray-800 dark:text-gray-300 mb-10">
+    <article className="text-stone-700 dark:text-stone-300 mb-10">
       <header className="mb-8">
-        <h1 className="text-2xl font-bold mb-2 dark:text-gray-100">{post.title}</h1>
+        <h1 className="text-2xl font-bold mb-2 text-stone-800 dark:text-stone-100">{post.title}</h1>
         {post.subtitle && (
-          <p className="text-gray-600 dark:text-gray-400 mb-2">{post.subtitle}</p>
+          <p className="text-stone-600 dark:text-stone-400 mb-2">{post.subtitle}</p>
         )}
-        <p className="font-mono text-xs text-neutral-500">
+        <p className="font-mono text-xs text-stone-500 dark:text-stone-500">
           <a
             href="https://twitter.com/RohdeAli"
-            className="hover:text-neutral-800 dark:hover:text-neutral-400"
+            className="hover:text-[#B8614A] dark:hover:text-[#6BADA3]"
             target="_blank"
           >
             @RohdeAli

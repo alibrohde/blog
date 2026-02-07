@@ -7,7 +7,7 @@ export function Header() {
     <header className="flex mb-5 md:mb-10 items-center">
       <Logo />
 
-      <nav className="text-xs grow justify-end items-center flex">
+      <nav className="text-sm grow justify-end items-center flex gap-1">
         <Link
           href="/blog"
           className="group p-2"

@@ -23,19 +23,21 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="my-12">
-      <h2 className="text-xl font-semibold mb-6 text-stone-800 dark:text-stone-100">What founders say</h2>
-      <div className="space-y-6">
+    <section className="my-14">
+      <h2 className="text-xs font-medium mb-6 text-stone-400 dark:text-stone-500 uppercase tracking-widest">What Founders Say</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="relative pl-4 border-l-2 border-[#B8614A]/20 dark:border-[#6BADA3]/20 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 transition-colors"
+            className="rounded-xl border border-stone-200 dark:border-stone-700 p-5 flex flex-col justify-between hover:border-[#B8614A]/40 dark:hover:border-[#6BADA3]/40 transition-colors"
           >
-            <p className="text-sm text-stone-600 dark:text-stone-400 mb-2 italic">
-              "{t.quote}"
+            <p className="text-sm leading-relaxed text-stone-600 dark:text-stone-400 mb-4">
+              &ldquo;{t.quote}&rdquo;
             </p>
-            <p className="text-sm font-medium text-stone-800 dark:text-stone-100">{t.name}</p>
-            <p className="text-xs text-stone-500 dark:text-stone-500">{t.title}</p>
+            <div>
+              <p className="text-sm font-medium text-stone-800 dark:text-stone-100">{t.name}</p>
+              <p className="text-xs text-stone-500 dark:text-stone-500">{t.title}</p>
+            </div>
           </div>
         ))}
       </div>
