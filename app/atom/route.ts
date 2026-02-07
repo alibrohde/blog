@@ -1,5 +1,14 @@
 import { getPosts } from "@/app/get-posts";
 
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 export async function GET() {
   const posts = await getPosts();
   const max = 100;
@@ -10,18 +19,19 @@ export async function GET() {
     <subtitle>Blog</subtitle>
     <link href="https://alirohde.com/atom" rel="self"/>
     <link href="https://alirohde.com/"/>
-    <updated>${posts[0]?.date || new Date().toISOString()}</updated>
+    <updated>${posts[0]?.isoDate ? new Date(posts[0].isoDate).toISOString() : new Date().toISOString()}</updated>
     <id>https://alirohde.com/</id>
     <author>
       <name>Ali Rohde</name>
     </author>
     ${posts.slice(0, max).reduce((acc, post) => {
+      const isoDate = new Date(post.isoDate).toISOString();
       return `${acc}
         <entry>
-          <id>${post.id}</id>
-          <title>${post.title}</title>
-          <link href="https://alirohde.com/p/${post.slug}"/>
-          <updated>${post.date}</updated>
+          <id>${escapeXml(post.id)}</id>
+          <title>${escapeXml(post.title)}</title>
+          <link href="https://alirohde.com/p/${escapeXml(post.slug)}"/>
+          <updated>${isoDate}</updated>
         </entry>`;
     }, "")}
   </feed>`,
