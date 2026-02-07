@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPost, getPosts } from "@/app/get-posts";
-
-export const revalidate = 300;
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { useMDXComponents } from "@/mdx-components";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -29,51 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-function cleanBeehiivContent(html: string): string {
-  let content = html;
-
-  // Extract just the body content if it's a full HTML document
-  const bodyMatch = content.match(/<body[^>]*>([\s\S]*)<\/body>/i);
-  if (bodyMatch) {
-    content = bodyMatch[1];
-  }
-
-  // Remove style tags first
-  content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
-
-  // Remove script tags
-  content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "");
-
-  // Remove the web-header div (contains title, author, date, social share)
-  content = content.replace(/<div[^>]*id=['"]web-header['"][^>]*>[\s\S]*?<\/div>\s*<\/div>/i, "");
-
-  // Remove any remaining h1 tags (title)
-  content = content.replace(/<h1[^>]*>[\s\S]*?<\/h1>/gi, "");
-
-  // Remove byline wrapper if it exists outside header
-  content = content.replace(/<div[^>]*class=['"][^'"]*bh__byline[^'"]*['"][^>]*>[\s\S]*?<\/div>/gi, "");
-
-  // Remove social share links (Twitter, Threads, LinkedIn intent links)
-  content = content.replace(/<a[^>]*href=['"][^'"]*twitter\.com\/intent[^'"]*['"][^>]*>[\s\S]*?<\/a>/gi, "");
-  content = content.replace(/<a[^>]*href=['"][^'"]*threads\.net\/intent[^'"]*['"][^>]*>[\s\S]*?<\/a>/gi, "");
-  content = content.replace(/<a[^>]*href=['"][^'"]*linkedin\.com\/sharing[^'"]*['"][^>]*>[\s\S]*?<\/a>/gi, "");
-
-  // Remove social share sections by class
-  content = content.replace(/<div[^>]*class=['"][^'"]*social[^'"]*['"][^>]*>[\s\S]*?<\/div>/gi, "");
-
-  // Remove inline styles from all elements
-  content = content.replace(/\s*style=['"][^'"]*['"]/gi, "");
-
-  // Remove beehiiv-specific classes
-  content = content.replace(/\s*class=['"][^'"]*wt-[^'"]*['"]/gi, "");
-  content = content.replace(/\s*class=['"][^'"]*bg-wt[^'"]*['"]/gi, "");
-
-  // Remove empty divs left behind (with only whitespace)
-  content = content.replace(/<div[^>]*>\s*<\/div>/gi, "");
-
-  return content.trim();
-}
-
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getPost(slug);
@@ -82,7 +37,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
-  const content = cleanBeehiivContent(post.content);
+  const components = useMDXComponents({});
 
   return (
     <article className="text-gray-800 dark:text-gray-300 mb-10">
@@ -104,10 +59,9 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         </p>
       </header>
 
-      <div
-        className="beehiiv-content prose dark:prose-invert max-w-none"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className="prose dark:prose-invert max-w-none">
+        <MDXRemote source={post.content} components={components} />
+      </div>
     </article>
   );
 }

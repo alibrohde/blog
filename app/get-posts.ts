@@ -1,7 +1,12 @@
+import { readFileSync, readdirSync } from "fs";
+import { join } from "path";
+import matter from "gray-matter";
+
 export type Post = {
   id: string;
   slug: string;
   date: string;
+  isoDate: string;
   title: string;
   thumbnail?: string;
   subtitle?: string;
@@ -12,47 +17,10 @@ export type PostWithContent = Post & {
   content: string;
 };
 
-type BeehiivPost = {
-  id: string;
-  slug: string;
-  title: string;
-  subtitle: string;
-  publish_date: number;
-  displayed_date: number | null;
-  thumbnail_url: string;
-  content?: {
-    free?: {
-      web?: string;
-    };
-  };
-};
+const postsDir = join(process.cwd(), "posts");
 
-const BEEHIIV_API_KEY = process.env.BEEHIIV_API_KEY;
-const BEEHIIV_PUBLICATION_ID = process.env.BEEHIIV_PUBLICATION_ID;
-
-async function fetchBeehiivPosts(expand = false): Promise<BeehiivPost[]> {
-  const expandParam = expand ? "&expand=free_web_content" : "";
-  const res = await fetch(
-    `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/posts?status=confirmed&limit=100${expandParam}`,
-    {
-      headers: {
-        Authorization: `Bearer ${BEEHIIV_API_KEY}`,
-      },
-      next: { revalidate: 300 },
-    }
-  );
-
-  if (!res.ok) {
-    console.error("Failed to fetch Beehiiv posts:", res.status);
-    return [];
-  }
-
-  const data = await res.json();
-  return data.data || [];
-}
-
-function formatDate(timestamp: number): string {
-  const date = new Date(timestamp * 1000);
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr + "T00:00:00");
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -61,46 +29,44 @@ function formatDate(timestamp: number): string {
 }
 
 function calculateReadingTime(content: string): string {
-  const text = content.replace(/<[^>]*>/g, ''); // Strip HTML
-  const words = text.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / 200); // 200 words per minute
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / 200);
   return `${minutes} min read`;
 }
 
-export const getPosts = async (): Promise<Post[]> => {
-  const beehiivPosts = await fetchBeehiivPosts();
+function readPost(filename: string): PostWithContent {
+  const slug = filename.replace(/\.mdx$/, "");
+  const filePath = join(postsDir, filename);
+  const raw = readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
 
-  const posts = beehiivPosts.map((post): Post => {
-    const dateToUse = post.displayed_date || post.publish_date;
-    return {
-      id: post.slug,
-      slug: post.slug,
-      date: formatDate(dateToUse),
-      title: post.title,
-      subtitle: post.subtitle,
-      thumbnail: post.thumbnail_url,
-    };
+  return {
+    id: slug,
+    slug,
+    date: formatDate(data.date),
+    isoDate: data.date,
+    title: data.title,
+    subtitle: data.subtitle || undefined,
+    thumbnail: data.thumbnail || undefined,
+    readingTime: calculateReadingTime(content),
+    content,
+  };
+}
+
+export const getPosts = async (): Promise<Post[]> => {
+  const files = readdirSync(postsDir).filter(f => f.endsWith(".mdx"));
+  const posts = files.map(f => {
+    const { content, ...meta } = readPost(f);
+    return meta;
   });
 
+  posts.sort((a, b) => (a.isoDate > b.isoDate ? -1 : 1));
   return posts;
 };
 
 export const getPost = async (slug: string): Promise<PostWithContent | null> => {
-  const beehiivPosts = await fetchBeehiivPosts(true);
-  const post = beehiivPosts.find((p) => p.slug === slug);
-
-  if (!post) return null;
-
-  const dateToUse = post.displayed_date || post.publish_date;
-  const content = post.content?.free?.web || "";
-  return {
-    id: post.slug,
-    slug: post.slug,
-    date: formatDate(dateToUse),
-    title: post.title,
-    subtitle: post.subtitle,
-    thumbnail: post.thumbnail_url,
-    content,
-    readingTime: calculateReadingTime(content),
-  };
+  const filename = `${slug}.mdx`;
+  const files = readdirSync(postsDir);
+  if (!files.includes(filename)) return null;
+  return readPost(filename);
 };
