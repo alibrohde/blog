@@ -40,8 +40,7 @@ export function Subscribe() {
 
   return (
     <div className="my-14 rounded-xl border border-stone-200 dark:border-stone-700 p-6">
-      <p className="text-sm font-medium text-stone-800 dark:text-stone-100 mb-1">Stay in the loop</p>
-      <p className="text-xs text-stone-500 dark:text-stone-500 mb-4">Occasional posts on investing, AI, and building.</p>
+      <p className="text-sm font-medium text-stone-800 dark:text-stone-100 mb-4">Stay in the loop</p>
       <form onSubmit={handleSubmit} className="flex items-center gap-3">
         <input
           type="email"
