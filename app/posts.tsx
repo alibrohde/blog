@@ -9,22 +9,7 @@ export function Posts({ posts }: { posts: Post[] }) {
 
   return (
     <main className="max-w-2xl m-auto mb-10 text-sm">
-      {/* Featured post */}
-      {featured && (
-        <Link href={`/p/${featured.slug}`} className="block mb-8 group">
-          <div className="border border-stone-200 dark:border-stone-700 rounded-lg p-5 transition-all duration-200 hover:border-[#B8614A]/40 dark:hover:border-[#6BADA3]/40 hover:shadow-sm">
-            <span className="text-xs text-[#B8614A] dark:text-[#6BADA3] uppercase tracking-wide font-medium">Featured</span>
-            <h3 className="text-lg font-semibold mt-1 text-stone-800 dark:text-stone-100 group-hover:text-[#B8614A] dark:group-hover:text-[#6BADA3] transition-colors">
-              {featured.title}
-            </h3>
-            <span className="text-xs text-stone-500 dark:text-stone-400 mt-2 block">
-              {getYear(featured.date)} · {featured.readingTime || "3 min read"}
-            </span>
-          </div>
-        </Link>
-      )}
-
-      {/* Rest of posts */}
+      {/* All posts */}
       <ul>
         {rest.map((post) => {
           const year = getYear(post.date);
@@ -50,6 +35,21 @@ export function Posts({ posts }: { posts: Post[] }) {
           );
         })}
       </ul>
+
+      {/* Featured post */}
+      {featured && (
+        <Link href={`/p/${featured.slug}`} className="block mt-8 group">
+          <div className="border border-stone-200 dark:border-stone-700 rounded-lg p-5 transition-all duration-200 hover:border-[#B8614A]/40 dark:hover:border-[#6BADA3]/40 hover:shadow-sm">
+            <span className="text-xs text-[#B8614A] dark:text-[#6BADA3] uppercase tracking-wide font-medium">Featured</span>
+            <h3 className="text-lg font-semibold mt-1 text-stone-800 dark:text-stone-100 group-hover:text-[#B8614A] dark:group-hover:text-[#6BADA3] transition-colors">
+              {featured.title}
+            </h3>
+            <span className="text-xs text-stone-500 dark:text-stone-400 mt-2 block">
+              {getYear(featured.date)} · {featured.readingTime || "3 min read"}
+            </span>
+          </div>
+        </Link>
+      )}
     </main>
   );
 }
