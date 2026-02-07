@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Post } from "./get-posts";
 
+const FEATURED_SLUG = "the-outset-capital-guide-to-hiring-a-chief-of-staff";
+
 export function Posts({ posts }: { posts: Post[] }) {
-  const featured = posts[0];
-  const rest = posts.slice(1);
+  const featured = posts.find((p) => p.slug === FEATURED_SLUG) || posts[0];
+  const rest = posts.filter((p) => p.slug !== featured.slug);
 
   return (
     <main className="max-w-2xl m-auto mb-10 text-sm">

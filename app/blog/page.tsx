@@ -11,8 +11,8 @@ export default async function Blog() {
   const posts = await getPosts();
   return (
     <>
-      <Posts posts={posts} />
       <Subscribe />
+      <Posts posts={posts} />
     </>
   );
 }
