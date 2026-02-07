@@ -49,6 +49,33 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="mt-10 flex gap-3 overflow-hidden rounded-xl">
+        <div className="relative flex-1 aspect-[4/3] min-w-0">
+          <Image
+            src="/images/personal-1.jpg"
+            alt="Walking Theo in Hayes Valley"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+        <div className="relative flex-1 aspect-[4/3] min-w-0">
+          <Image
+            src="/images/personal-2.jpg"
+            alt="With family and friends"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+        <div className="relative flex-1 aspect-[4/3] min-w-0">
+          <Image
+            src="/images/personal-3.jpg"
+            alt="San Francisco views"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+      </div>
+
       <section className="mt-10">
         <h2 className="text-xs font-medium mb-4 text-stone-400 dark:text-stone-500 uppercase tracking-widest">Select Portfolio</h2>
 
