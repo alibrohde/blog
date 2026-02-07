@@ -39,6 +39,9 @@ export default function Home() {
         </Link>
         , where we invest in AI, deeptech, and future of work.
         We write small checks and aim to be the most helpful investor per dollar on our founders&rsquo; cap tables.
+      </p>
+
+      <p className="mb-4">
         I&rsquo;m an East Coast transplant based in San Francisco, usually found walking Hayes Valley with my dog Theo.
       </p>
 

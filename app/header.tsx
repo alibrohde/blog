@@ -25,33 +25,6 @@ export function Header() {
 	    <TweetIcon />
 	  </span>
         </a>
-        <a
-          href="https://www.linkedin.com/in/ali-rohde-90719970/"
-          target="_blank"
-          className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap"
-        >
-	  <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
-	    <LinkedInIcon />
-	  </span>
-        </a>
-        <a
-          href="https://github.com/alibrohde"
-          target="_blank"
-          className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap"
-        >
-	  <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
-	    <GitHubIcon />
-	  </span>
-        </a>
-        <a
-          href="https://www.outsetcapital.com/"
-          target="_blank"
-          className="group hidden sm:inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap"
-        >
-	  <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex">
-	    Outset Capital
-	  </span>
-        </a>
         <ThemeToggle />
       </nav>
     </header>
