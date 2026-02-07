@@ -66,6 +66,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-xs font-medium mb-4 text-stone-400 dark:text-stone-500 uppercase tracking-widest">Side Projects</h2>
+
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href="https://alirohdejobs.substack.com/"
+            className="text-sm px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+            target="_blank"
+          >
+            Ali Rohde Jobs
+          </Link>
+          <Link
+            href="https://vcsheet.com/"
+            className="text-sm px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+            target="_blank"
+          >
+            VC Sheet
+          </Link>
+        </div>
+      </section>
+
       <Testimonials />
 
       <Subscribe />
