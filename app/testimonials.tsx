@@ -19,6 +19,11 @@ const testimonials = [
     title: "CEO, Tako",
     quote: "Ali does what most early-stage investors promise but few actually deliver: she adds value. She's smart, hungry, and relentlessly proactive. Don't let her humility fool you: she's special.",
   },
+  {
+    name: "Henry Mao",
+    title: "Co-founder, Smithery",
+    quote: "Ali is the rare early-stage investor who actually moves the needle for founders. Her biggest impact for us was on the talent side. She helped us source founding engineers, and through her network, we landed our 2nd founding engineer, who has been instrumental in building Smithery. When we need help, Ali is quick to respond and consistently points us to the right people. If you're an early-stage founder, you want Ali on your cap table.",
+  },
 ];
 
 export function Testimonials() {
