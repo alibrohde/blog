@@ -1,18 +1,19 @@
 # alirohde.com
 
-Personal website and blog for Ali Rohde, Managing Partner at [Outset Capital](https://www.outsetcapital.com/).
+Personal website and blog.
 
 Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://vercel.com).
 
 ## Features
 
-- Blog posts powered by [Beehiiv](https://www.beehiiv.com/) CMS
-- Email subscriptions via Beehiiv API
-- Light/dark mode toggle
-- Testimonials section
-- Reading time estimates
+- MDX blog posts with rich embeds (tweets, YouTube videos, code snippets)
+- Portfolio section with select investments
+- Testimonials from founders
+- Email subscriptions via [Beehiiv](https://www.beehiiv.com/) API
+- Light/dark mode
 - RSS feed
-- Responsive design
+- Vercel Analytics & Speed Insights
+- Claude Code GitHub Actions integration
 
 ## Setup
 
@@ -43,6 +44,9 @@ npx vercel --prod
 ## Stack
 
 - Next.js 16 (App Router)
+- React 19
 - Tailwind CSS
-- Beehiiv API for blog content
+- MDX via `next-mdx-remote`
+- `react-tweet`, `react-youtube`, `recharts`
+- Beehiiv API for subscriptions
 - Vercel for hosting
