@@ -37,7 +37,7 @@ export default function Home() {
         <Link href="https://www.outsetcapital.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
           Outset Capital
         </Link>
-        , where I invest in AI, deeptech, and future of work.
+        , where we invest in AI, deeptech, and future of work.
         We write small checks and aim to be the most helpful investor per dollar on our founders&rsquo; cap tables.
         I&rsquo;m an East Coast transplant based in San Francisco, usually found walking Hayes Valley with my dog Theo.
       </p>
