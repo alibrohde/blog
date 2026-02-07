@@ -69,20 +69,22 @@ export default function Home() {
       <section className="mt-10">
         <h2 className="text-xs font-medium mb-4 text-stone-400 dark:text-stone-500 uppercase tracking-widest">Side Projects</h2>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col gap-3">
           <Link
             href="https://alirohdejobs.substack.com/"
-            className="text-sm px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+            className="group"
             target="_blank"
           >
-            Ali Rohde Jobs
+            <span className="text-sm font-medium text-stone-800 dark:text-stone-100 group-hover:text-[#B8614A] dark:group-hover:text-[#6BADA3] transition-colors">Ali Rohde Jobs</span>
+            <p className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed">25K+ subscriber newsletter, weekly, free, helping to share the top Chief of Staff, BizOps and VC roles in tech.</p>
           </Link>
           <Link
             href="https://vcsheet.com/"
-            className="text-sm px-3 py-1.5 rounded-full border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-400 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+            className="group"
             target="_blank"
           >
-            VC Sheet
+            <span className="text-sm font-medium text-stone-800 dark:text-stone-100 group-hover:text-[#B8614A] dark:group-hover:text-[#6BADA3] transition-colors">VC Sheet</span>
+            <p className="text-sm text-stone-500 dark:text-stone-500 leading-relaxed">Founders: Stop wasting your time on investors that don&rsquo;t invest in your stage, sector, or geography. Find the VCs that are the best fit for you.</p>
           </Link>
         </div>
       </section>
