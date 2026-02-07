@@ -49,8 +49,10 @@ export default function Home() {
         <Link href="https://hedra.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Hedra</Link>,{" "}
         <Link href="https://medra.ai/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Medra</Link>,{" "}
         <Link href="https://physicalintelligence.company/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Physical Intelligence</Link>,{" "}
-        <Link href="https://poetiq.ai/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Poetiq</Link>, and{" "}
-        <Link href="https://reflex.dev/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Reflex</Link>.
+        <Link href="https://poetiq.ai/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Poetiq</Link>,{" "}
+        <Link href="https://reflex.dev/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Reflex</Link>,{" "}
+        <Link href="https://smithery.ai/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Smithery</Link>, and{" "}
+        <Link href="https://tako.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">Tako</Link>.
       </p>
 
       <div className="clear-both" />
