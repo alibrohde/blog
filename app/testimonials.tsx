@@ -1,7 +1,7 @@
 const testimonials = [
   {
     name: "Michelle Lee, PhD",
-    title: "CEO, Hedra",
+    title: "CEO, Medra",
     quote: "Ali is a force of nature, delivering the depth and quality of support you'd expect from a full institutional VC team, yet operating as a team of one. She's the kind of partner every founder deserves.",
   },
   {
