@@ -1,7 +1,6 @@
 export const revalidate = 300;
 
 import { ImageResponse } from "next/og";
-import { getPosts } from "@/app/get-posts";
 import { readFileSync } from "fs";
 import { join } from "path";
 
@@ -16,41 +15,23 @@ const geistSansMedium = readFileSync(
 );
 
 export async function GET() {
-  const posts = await getPosts();
-
   return new ImageResponse(
     (
       <div
-        tw="flex p-10 h-full w-full bg-white flex-col"
+        tw="flex h-full w-full bg-white flex-col items-center justify-center"
         style={font("Geist")}
       >
-        <header tw="flex text-[36px] w-full">
-          <div style={font("Geist Medium")}>
+        <div tw="flex flex-col items-center justify-center">
+          <div tw="text-[72px] mb-4" style={font("Geist Medium")}>
             Ali Rohde
           </div>
-          <div tw="grow" />
-          <div tw="text-[28px]">alirohde.com</div>
-        </header>
-
-        <main tw="flex mt-10 flex-col w-full">
-          {posts.map((post, i) => {
-            const year = getYear(post.date);
-            const firstOfYear =
-              !posts[i - 1] || getYear(posts[i - 1].date) !== year;
-
-            return (
-              <div
-                key={post.id}
-                tw="flex py-3 text-[28px] w-full items-center"
-              >
-                <div tw="flex text-gray-500 w-24 text-[24px]">
-                  {firstOfYear ? year : ""}
-                </div>
-                <div tw="flex grow">{post.title}</div>
-              </div>
-            );
-          })}
-        </main>
+          <div tw="text-[32px] text-gray-600">
+            Managing Partner at Outset Capital
+          </div>
+          <div tw="text-[24px] text-gray-500 mt-8">
+            alirohde.com
+          </div>
+        </div>
       </div>
     ),
     {
@@ -70,11 +51,6 @@ export async function GET() {
       ],
     }
   );
-}
-
-// lil helper to convert posts.json `date` to full year
-function getYear(date: string) {
-  return new Date(date).getFullYear();
 }
 
 // lil helper for more succinct styles
