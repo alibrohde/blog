@@ -24,6 +24,11 @@ const testimonials = [
     title: "Co-founder, Smithery",
     quote: "Ali is the rare early-stage investor who actually moves the needle for founders. Her biggest impact for us was on the talent side. She helped us source founding engineers, and through her network, we landed our 2nd founding engineer, who has been instrumental in building Smithery. When we need help, Ali is quick to respond and consistently points us to the right people. If you're an early-stage founder, you want Ali on your cap table.",
   },
+  {
+    name: "Anirudh Kamath",
+    title: "Co-Founder, Smithery",
+    quote: "We're incredibly lucky to have Ali and Outset as investors; anytime we ask for absolutely anything, we'll get a response back within minutes with exactly what we need, be it intros to VPs at unicorn companies, other investors, or potential hires. We landed our most experienced engineer via Ali putting us in touch, and we can't thank her enough!",
+  },
 ];
 
 export function Testimonials() {
