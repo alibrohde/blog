@@ -1,10 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { StarButton } from "@/components/ui/star-button";
+
+function useTypewriter(text: string, speed = 40, startTyping = false) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (!startTyping) return;
+    setDisplayed("");
+    setDone(false);
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, speed, startTyping]);
+
+  return { displayed, done };
+}
 
 export function Subscribe() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  const { displayed: tagline, done: typingDone } = useTypewriter("Subscribe to receive my newsletter.", 35, inView);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,7 +58,7 @@ export function Subscribe() {
   if (status === "success") {
     return (
       <div className="my-12">
-        <p className="text-sm text-[#B8614A] dark:text-[#6BADA3]">
+        <p className="text-sm text-[#6366f1] dark:text-[#6BADA3]">
           You're subscribed.
         </p>
       </div>
@@ -39,24 +66,28 @@ export function Subscribe() {
   }
 
   return (
-    <div className="my-12">
-      <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">Subscribe to receive my newsletter.</p>
-      <form onSubmit={handleSubmit} className="flex items-center gap-4">
+    <div className="my-12" ref={ref}>
+      <p className="text-sm text-stone-500 dark:text-stone-400 mb-4 min-h-[1.25rem]">
+        {tagline}
+        {!typingDone && (
+          <span className="inline-block w-[2px] h-[0.9em] bg-stone-400 dark:bg-stone-500 ml-0.5 align-text-bottom animate-pulse" />
+        )}
+      </p>
+      <form onSubmit={handleSubmit} className="flex items-center gap-3">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Subscribe via email"
+          placeholder="your@email.com"
           required
-          className="flex-grow text-sm bg-transparent border-b border-stone-300 dark:border-stone-600 py-2 focus:outline-none focus:border-[#B8614A] dark:focus:border-[#6BADA3] transition-colors placeholder:text-stone-400 dark:placeholder:text-stone-500"
+          className="flex-grow text-sm bg-transparent border border-stone-200 dark:border-stone-700 rounded-lg px-3 py-2 focus:outline-none focus:border-[#6366f1] dark:focus:border-[#6BADA3] transition-colors placeholder:text-stone-400 dark:placeholder:text-stone-500"
         />
-        <button
-          type="submit"
-          disabled={status === "loading"}
-          className="text-sm text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] disabled:opacity-50 transition-colors"
+        <StarButton
+          lightColor="#9ca3af"
+          className="rounded-lg cursor-pointer"
         >
-          {status === "loading" ? "..." : "→"}
-        </button>
+          {status === "loading" ? "..." : "Subscribe"}
+        </StarButton>
       </form>
       {status === "error" && (
         <p className="text-xs text-stone-500 mt-2">Something went wrong.</p>

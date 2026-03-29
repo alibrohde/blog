@@ -8,6 +8,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
+    "clsx": "^2.1.1",
     "geist": "^1.5.1",
     "gray-matter": "^4.0.3",
     "image-size": "^1.0.2",
@@ -22,6 +23,7 @@
     "react-youtube": "^10.1.0",
     "recharts": "^3.2.1",
     "swr": "^2.3.6",
+    "tailwind-merge": "^3.5.0",
     "time-ago": "^0.2.1"
   },
   "devDependencies": {

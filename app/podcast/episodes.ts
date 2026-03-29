@@ -24,7 +24,7 @@ export const episodes: Episode[] = [
     number: 1,
     slug: "guillermo-rauch-vercel",
     title: "Anti-1:1s, terminally online, and just getting started | Guillermo Rauch, Vercel",
-    hook: "Anti-1:1s, terminally online, and just getting started",
+    hook: "Vercel's Guillermo Rauch is anti-1:1s, terminally online, and just getting started",
     guest: "Guillermo Rauch",
     company: "Vercel",
     role: "CEO",

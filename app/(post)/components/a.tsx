@@ -5,7 +5,7 @@ export function A({ children, className = "", href, ...props }) {
     return (
       <a
         href={href}
-        className={`border-b text-[#B8614A] border-[#B8614A]/40 transition-[border-color] hover:border-[#B8614A] dark:text-[#6BADA3] dark:border-[#6BADA3]/40 dark:hover:border-[#6BADA3] ${className}`}
+        className={`border-b text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-600 transition-[border-color] hover:border-[#6366f1] dark:hover:border-[#6BADA3] ${className}`}
         {...props}
       >
         {children}
@@ -16,7 +16,7 @@ export function A({ children, className = "", href, ...props }) {
     return (
       <Link
         href={href}
-        className={`border-b text-[#B8614A] border-[#B8614A]/40 transition-[border-color] hover:border-[#B8614A] dark:text-[#6BADA3] dark:border-[#6BADA3]/40 dark:hover:border-[#6BADA3] ${className}`}
+        className={`border-b text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-600 transition-[border-color] hover:border-[#6366f1] dark:hover:border-[#6BADA3] ${className}`}
         {...props}
       >
         {children}
@@ -29,7 +29,7 @@ export function A({ children, className = "", href, ...props }) {
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className={`border-b text-[#B8614A] border-[#B8614A]/40 transition-[border-color] hover:border-[#B8614A] dark:text-[#6BADA3] dark:border-[#6BADA3]/40 dark:hover:border-[#6BADA3] ${className}`}
+        className={`border-b text-stone-800 dark:text-stone-200 border-stone-300 dark:border-stone-600 transition-[border-color] hover:border-[#6366f1] dark:hover:border-[#6BADA3] ${className}`}
         {...props}
       >
         {children}

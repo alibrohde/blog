@@ -18,14 +18,14 @@ export function PodcastEpisode({ episode }: { episode: Episode }) {
         </span>
       </div>
 
-      <h3 className="text-base font-medium mb-2">{episode.hook}</h3>
+      <h3 className="text-base font-medium mb-2 font-serif">{episode.hook}</h3>
 
       <p className="text-sm text-stone-500 dark:text-stone-400 mb-1">
         {episode.guest}, {episode.role} of{" "}
         <a
           href={episode.guestLinks.company}
           target="_blank"
-          className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2"
+          className="text-stone-800 dark:text-stone-200 underline decoration-stone-300 dark:decoration-stone-600 hover:decoration-[#6366f1] dark:hover:decoration-[#6BADA3] underline-offset-2"
         >
           {episode.company}
         </a>
@@ -55,7 +55,7 @@ export function PodcastEpisode({ episode }: { episode: Episode }) {
               className="w-full h-full object-cover rounded"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-[#B8614A]/90 dark:group-hover:bg-[#6BADA3]/90 transition-colors">
+              <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-[#6366f1]/90 dark:group-hover:bg-[#6BADA3]/90 transition-colors">
                 <svg viewBox="0 0 24 24" className="fill-white w-7 h-7 ml-1">
                   <path d="M8 5v14l11-7z" />
                 </svg>
@@ -69,14 +69,14 @@ export function PodcastEpisode({ episode }: { episode: Episode }) {
         <a
           href={`https://www.youtube.com/watch?v=${episode.youtubeId}`}
           target="_blank"
-          className="text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+          className="text-stone-400 hover:text-[#6366f1] dark:hover:text-[#6BADA3] transition-colors"
         >
           YouTube
         </a>
         <a
           href={episode.substackUrl}
           target="_blank"
-          className="text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+          className="text-stone-400 hover:text-[#6366f1] dark:hover:text-[#6BADA3] transition-colors"
         >
           Substack
         </a>
@@ -84,7 +84,7 @@ export function PodcastEpisode({ episode }: { episode: Episode }) {
           <a
             href={episode.guestLinks.x}
             target="_blank"
-            className="text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+            className="text-stone-400 hover:text-[#6366f1] dark:hover:text-[#6BADA3] transition-colors"
           >
             @{episode.guestLinks.x.split("/").pop()}
           </a>

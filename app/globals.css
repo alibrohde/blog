@@ -23,7 +23,7 @@
 .beehiiv-content h1,
 .beehiiv-content h2,
 .beehiiv-content h3 {
-  @apply font-bold mt-8 mb-4 dark:text-stone-100;
+  @apply font-bold mt-8 mb-4 dark:text-stone-100 font-serif;
 }
 
 .beehiiv-content h1 {
@@ -43,7 +43,7 @@
 }
 
 .beehiiv-content a {
-  @apply text-[#B8614A] dark:text-[#6BADA3] underline hover:no-underline;
+  @apply text-stone-800 dark:text-stone-200 underline decoration-stone-300 dark:decoration-stone-600 hover:decoration-[#6366f1] dark:hover:decoration-[#6BADA3];
 }
 
 .beehiiv-content ul,
@@ -68,7 +68,7 @@
 }
 
 .beehiiv-content blockquote {
-  @apply border-l-4 border-[#B8614A]/30 dark:border-[#6BADA3]/30 pl-4 italic my-4;
+  @apply border-l-4 border-[#6366f1]/30 dark:border-[#6BADA3]/30 pl-4 italic my-4;
 }
 
 .beehiiv-content pre,
@@ -80,16 +80,31 @@
   @apply p-4 overflow-x-auto my-4;
 }
 
+/* Footer icon spin on hover (inspired by cebor.ski) */
+.footer-icon-spin {
+  transition: transform 0.35s cubic-bezier(0.54, -0.01, 0.6, 1.01);
+}
+
+a:hover > .footer-icon-spin {
+  transform: rotate(360deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}
+
 @layer base {
   :root {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
     color-scheme: light;
-    /* Warm cream background */
-    --color-accent: #B8614A;
-    --color-accent-hover: #9A4F3C;
-    --color-accent-subtle: #B8614A1a;
-    @apply bg-[#FAF8F5];
+    --color-accent: #6366f1;
+    --color-accent-hover: #4f46e5;
+    --color-accent-subtle: #6366f11a;
+    @apply bg-white;
   }
 
   .dark {
@@ -99,6 +114,24 @@
     --color-accent-hover: #5C9C94;
     --color-accent-subtle: #6BADA31a;
     @apply bg-[#1A1918];
+  }
+
+  /* Subtle grain texture overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
 
   /* Global text selection styles - uses accent color */

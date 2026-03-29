@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import { Analytics } from "./analytics";
 import { Header } from "./header";
 import { Footer } from "./footer";
@@ -14,6 +14,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
   fallback: ["ui-monospace", "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", "monospace"]
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -48,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${geistMono.variable} ${geist.className} antialiased`}
+      className={`${geist.variable} ${geistMono.variable} ${playfair.variable} ${geist.className} antialiased`}
       suppressHydrationWarning={true}
     >
       <head>
@@ -66,8 +72,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="text-stone-700 dark:text-stone-300 max-w-2xl m-auto">
-        <main className="p-6 pt-3 md:pt-6 min-h-screen">
+      <body className="text-stone-700 dark:text-stone-300 leading-relaxed">
+        <main className="p-6 pt-3 md:pt-6 min-h-screen max-w-2xl mx-auto">
           <Header />
           {children}
         </main>

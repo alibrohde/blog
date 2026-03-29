@@ -26,7 +26,7 @@ export function Testimonials() {
         {testimonials.map((t, i) => (
           <div
             key={i}
-            className="relative pl-4 border-l-2 border-[#B8614A]/20 dark:border-[#6BADA3]/20 hover:border-[#B8614A]/50 dark:hover:border-[#6BADA3]/50 transition-colors"
+            className="relative pl-4 border-l-2 border-[#6366f1]/20 dark:border-[#6BADA3]/20 hover:border-[#6366f1]/50 dark:hover:border-[#6BADA3]/50 transition-colors"
           >
             <p className="text-sm text-stone-600 dark:text-stone-400 mb-2 italic">
               "{t.quote}"
@@ -39,7 +39,7 @@ export function Testimonials() {
       <div className="mt-6">
         <Link
           href="/testimonials-page"
-          className="text-sm text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2"
+          className="text-sm text-stone-800 dark:text-stone-200 underline decoration-stone-300 dark:decoration-stone-600 hover:decoration-[#6366f1] dark:hover:decoration-[#6BADA3] underline-offset-2"
         >
           See more
         </Link>

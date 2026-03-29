@@ -55,7 +55,7 @@ export function SocialIcons() {
           href={social.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-stone-400 hover:text-[#B8614A] dark:hover:text-[#6BADA3] transition-colors"
+          className="text-stone-400 hover:text-[#6366f1] dark:hover:text-[#6BADA3] transition-colors"
           aria-label={social.name}
         >
           {social.icon}
