@@ -8,10 +8,10 @@ export function ThemeToggle() {
   useEffect(() => {
     // Get initial theme from localStorage, default to dark
     const stored = localStorage.getItem("theme");
-    if (stored === "light") {
-      setTheme("light");
-    } else {
+    if (stored === "dark") {
       setTheme("dark");
+    } else {
+      setTheme("light");
     }
   }, []);
 

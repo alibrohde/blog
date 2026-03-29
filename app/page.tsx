@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import aliPhoto from "../public/images/ali.png";
 import { Subscribe } from "./subscribe";
-import { Testimonials } from "./testimonials";
 
 const companies = [
   { name: "Browserbase", href: "https://browserbase.com/" },
@@ -33,36 +32,31 @@ export default function Home() {
       </div>
 
       <p className="mb-4">
-        I&rsquo;m Managing Partner at{" "}
+        I&rsquo;m co-founder and General Partner at{" "}
         <Link href="https://www.outsetcapital.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
           Outset Capital
         </Link>
-        , where we invest in AI, deeptech, and future of work.
-        We write small checks and aim to be the most helpful investor per dollar on our founders&rsquo; cap tables.
+        , an early-stage firm investing in AI.
       </p>
 
       <p className="mb-4">
-        I&rsquo;m an East Coast transplant based in San Francisco, usually found walking Hayes Valley with my dog Theo.
-      </p>
-
-      <p className="mb-4">
-        I run a podcast,{" "}
+        I run podcast{" "}
         <Link href="/podcast" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2">
           10 Minutes or Less
         </Link>
-        . I also helped build{" "}
-        <Link href="https://www.vcsheet.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
-          VC Sheet
-        </Link>
-        , for early-stage founders to find the best-fit investors for them. And I write{" "}
+        {" "}and write{" "}
         <Link href="https://alirohdejobs.substack.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
           Ali Rohde Jobs
         </Link>
-        , a 25K+ free weekly subscriber newsletter sharing the most exciting Chief of Staff, BizOps, and VC roles in tech.
+        , a 25K+ subscriber newsletter sharing Chief of Staff, BizOps, and VC openings. I helped build{" "}
+        <Link href="https://www.vcsheet.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          VC Sheet
+        </Link>
+        {" "}for founders to find the best-fit investors for them.
       </p>
 
       <p className="mb-4">
-        For the latest, follow me on{" "}
+        I&rsquo;m active on{" "}
         <a href="https://x.com/RohdeAli" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
           X
         </a>
@@ -93,8 +87,6 @@ export default function Home() {
       </div>
 
       <div className="clear-both" />
-
-      <Testimonials />
 
       <Subscribe />
     </div>

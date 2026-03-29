@@ -1,20 +1,10 @@
-import { A } from "./(post)/components/a";
+import { SocialIcons } from "./social-icons";
 
 export function Footer() {
   return (
-    <footer className="p-6 pt-3 pb-6 flex text-xs text-center mt-3 dark:text-stone-500 text-stone-500 font-mono">
-      <div className="grow text-left">
-        Ali Rohde (
-        <A target="_blank" href="https://twitter.com/RohdeAli">
-          @RohdeAli
-        </A>
-        )
-      </div>
-      <div>
-        <A target="_blank" href="https://github.com/alibrohde/blog">
-          Source
-        </A>
-      </div>
+    <footer className="p-6 pt-3 pb-6 flex items-center mt-3 text-stone-500 font-mono text-xs">
+      <div className="grow">Ali Rohde</div>
+      <SocialIcons />
     </footer>
   );
 }

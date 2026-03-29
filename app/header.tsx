@@ -26,7 +26,7 @@ export function Header() {
         </Link>
         <Link
           href="/testimonials-page"
-          className="group p-2"
+          className="group p-2 hidden sm:flex"
         >
 	  <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex">
 		  Testimonials

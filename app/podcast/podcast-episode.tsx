@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import YT from "react-youtube";
 import type { Episode } from "./episodes";
 
 export function PodcastEpisode({ episode }: { episode: Episode }) {
+  const [playing, setPlaying] = useState(false);
+
   return (
     <article>
       <div className="mb-2 flex items-baseline gap-3">
@@ -30,12 +33,37 @@ export function PodcastEpisode({ episode }: { episode: Episode }) {
 
       <p className="text-sm mb-4">{episode.description}</p>
 
-      <span className="block my-4">
-        <YT
-          videoId={episode.youtubeId}
-          opts={{ width: "100%", playerVars: { rel: 0 } }}
-        />
-      </span>
+      <div className="my-4 aspect-video relative">
+        {playing ? (
+          <YT
+            videoId={episode.youtubeId}
+            opts={{
+              width: "100%",
+              height: "100%",
+              playerVars: { rel: 0, autoplay: 1 },
+            }}
+            className="absolute inset-0 w-full h-full"
+          />
+        ) : (
+          <button
+            onClick={() => setPlaying(true)}
+            className="relative w-full h-full group cursor-pointer"
+          >
+            <img
+              src={`https://i.ytimg.com/vi/${episode.youtubeId}/maxresdefault.jpg`}
+              alt={episode.title}
+              className="w-full h-full object-cover rounded"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-16 h-16 bg-black/70 rounded-full flex items-center justify-center group-hover:bg-[#B8614A]/90 dark:group-hover:bg-[#6BADA3]/90 transition-colors">
+                <svg viewBox="0 0 24 24" className="fill-white w-7 h-7 ml-1">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </button>
+        )}
+      </div>
 
       <div className="flex gap-4 text-xs">
         <a

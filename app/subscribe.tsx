@@ -40,6 +40,7 @@ export function Subscribe() {
 
   return (
     <div className="my-12">
+      <p className="text-sm text-stone-500 dark:text-stone-400 mb-4">Subscribe to receive my newsletter.</p>
       <form onSubmit={handleSubmit} className="flex items-center gap-4">
         <input
           type="email"
