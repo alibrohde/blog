@@ -9,6 +9,14 @@ export function Header() {
 
       <nav className="text-xs grow justify-end items-center flex">
         <Link
+          href="/podcast"
+          className="group p-2"
+        >
+	  <span className="group-hover:bg-[#B8614A]/10 dark:group-hover:bg-[#6BADA3]/10 rounded-xl py-0.5 px-1.5 inline-flex">
+		  Podcast
+	  </span>
+        </Link>
+        <Link
           href="/blog"
           className="group p-2"
         >

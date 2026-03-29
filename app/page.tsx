@@ -45,6 +45,38 @@ export default function Home() {
         I&rsquo;m an East Coast transplant based in San Francisco, usually found walking Hayes Valley with my dog Theo.
       </p>
 
+      <p className="mb-4">
+        I run a podcast,{" "}
+        <Link href="/podcast" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2">
+          10 Minutes or Less
+        </Link>
+        . I also helped build{" "}
+        <Link href="https://www.vcsheet.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          VC Sheet
+        </Link>
+        , for early-stage founders to find the best-fit investors for them. And I write{" "}
+        <Link href="https://alirohdejobs.substack.com/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          Ali Rohde Jobs
+        </Link>
+        , a 25K+ free weekly subscriber newsletter sharing the most exciting Chief of Staff, BizOps, and VC roles in tech.
+      </p>
+
+      <p className="mb-4">
+        For the latest, follow me on{" "}
+        <a href="https://x.com/RohdeAli" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          X
+        </a>
+        ,{" "}
+        <a href="https://www.linkedin.com/in/ali-rohde-90719970/" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          LinkedIn
+        </a>
+        , and{" "}
+        <a href="https://www.youtube.com/@10minutesorlesswithalirohde" className="text-[#B8614A] dark:text-[#6BADA3] underline decoration-[#B8614A]/40 dark:decoration-[#6BADA3]/40 hover:decoration-[#B8614A] dark:hover:decoration-[#6BADA3] underline-offset-2" target="_blank">
+          YouTube
+        </a>
+        .
+      </p>
+
       <h2 className="text-sm font-medium mt-8 mb-3 text-stone-500 dark:text-stone-400 uppercase tracking-wide">Select Portfolio</h2>
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 mb-4">
