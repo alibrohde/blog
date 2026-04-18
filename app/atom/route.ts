@@ -30,7 +30,7 @@ export async function GET() {
         <entry>
           <id>${escapeXml(post.id)}</id>
           <title>${escapeXml(post.title)}</title>
-          <link href="https://alirohde.com/p/${escapeXml(post.slug)}"/>
+          <link href="https://alirohde.com/blog/${escapeXml(post.slug)}"/>
           <updated>${isoDate}</updated>
         </entry>`;
     }, "")}

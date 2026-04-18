@@ -18,13 +18,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return { title: "Post not found" };
   }
 
+  const description = post.subtitle || `${post.title} - Ali Rohde`;
+  const ogImage = post.thumbnail || `https://alirohde.com/og/${post.slug}`;
+
   return {
     title: post.title,
-    description: post.subtitle || `${post.title} - Ali Rohde`,
+    description,
     openGraph: {
       title: post.title,
-      description: post.subtitle || `${post.title} - Ali Rohde`,
-      images: post.thumbnail ? [post.thumbnail] : [],
+      description,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      creator: "@RohdeAli",
+      title: post.title,
+      description,
+      images: [ogImage],
     },
   };
 }
