@@ -9,7 +9,7 @@ Tech is full of ideas that didn't originate here at all. They drifted in from ps
 
 **Affordances**
 
-Interface cues that signal how something should be used. Originating in ecological psychology and later formalized in HCI, they shape how we design agent and LLM interfaces, making it obvious what actions a model can take, what tools it can invoke, and how to signal intent without overwhelming the user.
+Interface cues that signal how something should be used. Originating in ecological psychology and later formalized in HCI, they shape how Claude Code surfaces its slash commands and `@` file mentions so capabilities are discoverable without reading docs first, and how the "Tools" button in ChatGPT makes code execution and web search explicit options rather than wording-dependent tricks hidden in the prompt.
 
 **Anti-Patterns**
 
@@ -17,11 +17,11 @@ Tempting solutions that reliably cause bad outcomes. Originating in software eng
 
 **Bikeshedding**
 
-Over-focusing on trivial issues because the important ones are harder. From Parkinson's Law of Triviality, it shows up in endless debates over small prompt tweaks or logging formats instead of addressing core architecture, data quality, or evaluation rigor.
+Over-focusing on trivial issues because the important ones are harder. From Parkinson's Law of Triviality, it shows up when an AI team burns a sprint debating which system-prompt phrasing is most polite, while skipping the harder conversation about whether their eval set reflects the queries real users actually send.
 
 **Capability Overhang**
 
-The gap between what a model can already do and what people have figured out how to get it to do. From AI safety and alignment discourse in the early 2020s, used to describe how a system's latent abilities can outpace the interfaces, prompts, and scaffolding built around it. Shows up when months of apparent "progress" on a benchmark turn out to come not from a new model but from better prompting, tool use, or agent design wrapped around a model that was already there.
+The gap between what a model can already do and what people have figured out how to get it to do. From AI safety and alignment discourse in the early 2020s, used to describe how a system's latent abilities can outpace the interfaces, prompts, and scaffolding built around it. Shows up most clearly in the SWE-bench trajectory, where scores climbed from the low single digits to over fifty percent on roughly the same underlying GPT-4-class model, because the agent scaffolding around it (Claude Code, Aider, Devin) got dramatically better while the weights stayed essentially the same.
 
 **Commoditize Your Complement**
 
@@ -29,7 +29,7 @@ Drive down the price of things adjacent to your product so more value accrues to
 
 **Default Alive**
 
-A startup is "default alive" when, without raising more money or cutting burn, it will eventually become profitable before running out of cash. Coined by Paul Graham, the idea spread because it offered a clear test of whether a company was building a real business or simply extending runway. In AI, teams use it to distinguish between products that can sustain compute-heavy operations on revenue versus those reliant on continuous fundraising.
+A startup is "default alive" when, without raising more money or cutting burn, it will eventually become profitable before running out of cash. Coined by Paul Graham, the idea spread because it offered a clear test of whether a company was building a real business or simply extending runway. Shows up sharply in AI: Cursor built a significant ARR business on top of OpenAI and Anthropic inference, so the default-alive question becomes whether its unit economics survive as token prices fall and competitors arbitrage the margin, versus the long tail of wrapper startups that cannot cover their inference bill even at peak pricing.
 
 **Dogfooding**
 
@@ -37,7 +37,7 @@ Using your own product internally before (or alongside) shipping it to customers
 
 **Dunning-Kruger Effect**
 
-Beginners overestimate their ability while experts underestimate theirs. From social psychology (1999), it explains why novices often assume AI is already superhuman while experts can be overly cautious after seeing edge cases up close.
+Beginners overestimate their ability while experts underestimate theirs. From social psychology (1999), it shows up when a first-time Claude Code user ships a landing page in an afternoon and concludes software engineering is basically over, while senior engineers who have watched the same tools fumble a race condition or hallucinate an API become over-skeptical about what these systems can actually do.
 
 **Founder Mode**
 
@@ -49,11 +49,11 @@ Interchangeable with other units of the same kind. From Roman law and classical 
 
 **Hand-Rolled**
 
-Custom-built instead of using standard tools. Borrowed from hand-rolled cigarettes and adopted by early programming culture, it describes much of today's AI infra: bespoke RAG stacks, evaluation harnesses, routing layers, and memory systems built before reliable primitives exist.
+Custom-built instead of using standard tools. Borrowed from hand-rolled cigarettes and adopted by early programming culture, it describes the bespoke RAG stacks every startup wrote in 2023 before vector databases stabilized, and the agent-orchestration code teams still maintain in-house while waiting on standards like MCP to harden into defaults.
 
 **Hill-Climbing**
 
-Incremental improvement that risks getting stuck in a local optimum. From optimization and computer science, it mirrors gradient descent and expresses the concern that the field might over-optimize current architectures while overlooking radically better ones.
+Incremental improvement that risks getting stuck in a local optimum. From optimization and computer science, it mirrors gradient descent and surfaces in the scaling-laws debate: if bigger transformers keep inching benchmarks up, labs have every incentive to chase the next percentage point rather than invest in fundamentally new architectures, which critics argue is exactly what has dragged out the search for post-transformer approaches.
 
 **Idempotent**
 
@@ -73,15 +73,15 @@ The extent to which a system can be seen, measured, and standardized from above.
 
 **Occam's Razor**
 
-The simplest explanation is usually the best. From medieval philosophy, it guides engineering instincts: simpler systems are easier to debug, simpler architectures often generalize better, and most product problems stem from straightforward issues rather than elaborate strategic failures.
+The simplest explanation is usually the best. From medieval philosophy, it shows up every time a team blames an agent failure on emergent reasoning collapse when the real cause turns out to be a wrong file path, a truncated context window, or an API rate limit. The unglamorous explanation is almost always the right one.
 
 **Overton Window**
 
-The range of ideas society considers acceptable. From political science, it explains how positions in AI (open weights, autonomous agents, extreme compute budgets) move from fringe to mainstream with surprising speed.
+The range of ideas society considers acceptable. From political science, it explains how fast open-weights models went from fringe ("Meta is irresponsible for releasing LLaMA") to baseline ("every serious infrastructure company needs an open-source option"), and how autonomous agents moved from science fiction to a standard shipping target inside a couple of years.
 
 **Power Law**
 
-A small number of outcomes dominate the whole distribution. From statistics and complex-systems theory, it underlies everything in tech and AI: a few models dominate benchmarks, a handful of companies capture most market traction, and a tiny fraction of agents are dramatically more reliable than the rest.
+A small number of outcomes dominate the whole distribution. From statistics and complex-systems theory, it shows up in AI market structure: OpenAI and Anthropic capture the bulk of developer mindshare while hundreds of smaller labs share the long tail, and inside any given agent stack one or two reliable tool chains handle ninety percent of the real work while the rest barely get invoked.
 
 **PRD (Product Requirements Document)**
 
@@ -89,27 +89,27 @@ The written spec for what a product or feature should do, for whom, and under wh
 
 **Principal-Agent Problem**
 
-Misaligned incentives between the decision-maker and the doer. From economics, it doubles as a metaphor for alignment: the human is the principal and the model the agent, and the work is about creating incentives, constraints, and oversight mechanisms that keep the agent behaving as intended.
+Misaligned incentives between the decision-maker and the doer. From economics, it doubles as the core metaphor for AI alignment: the human is the principal, the model is the agent, and the work is about creating incentives, constraints, and oversight that keep the agent from pursuing the letter of an instruction while violating its spirit. Anthropic's Constitutional AI is one attempt at a durable solution.
 
 **Progressive Disclosure**
 
-Revealing complexity only when the user needs it. From UX design, it drives modern AI interfaces where advanced controls (system prompts, routing logic, vector settings) stay hidden until users are ready for them.
+Revealing complexity only when the user needs it. From UX design, it shows up in how ChatGPT hides model selection and system prompts behind a settings cog while exposing a single chat box by default, and in how Claude Code ships with opinionated defaults but lets power users override permissions, hooks, and MCP servers once they know what those are.
 
 **Reality Distortion Field**
 
-A leader's charisma makes impossible goals feel inevitable. Coined in 1981 at Apple to describe Steve Jobs, it appears today around ambitious AI lab roadmaps and founders whose certainty accelerates teams beyond conventional timelines.
+A leader's charisma makes impossible goals feel inevitable. Coined in 1981 at Apple to describe Steve Jobs, it shows up today around AI lab roadmaps where the next scheduled capability leap outpaces what the team has publicly demonstrated, and in founder pitches where the promised agent "just around the corner" reshapes hiring, funding, and policy conversations even before a working demo exists.
 
 **RLHF (Reinforcement Learning from Human Feedback)**
 
-A training method where humans provide preference data that guides reward models, which in turn steer LLM behavior. Originating at the intersection of RL and HCI, it's a major driver of model alignment, safety, and stylistic refinement, but also introduces failure modes when the reward signal is ambiguous or overly normative.
+A training method where humans provide preference data that guides reward models, which in turn steer LLM behavior. Originating at the intersection of RL and HCI, it went mainstream through OpenAI's InstructGPT paper and then ChatGPT, and its characteristic failure modes (models that hedge, moralize, or refuse reasonable requests) are now the most-complained-about quirks of every post-2022 frontier chatbot.
 
 **S-Curve**
 
-A pattern where technologies grow slowly, then rapidly, then plateau. From innovation theory, it's often used to frame AI capability growth: many believe we're in the steep middle of the curve, while the location or existence of the plateau remains uncertain.
+A pattern where technologies grow slowly, then rapidly, then plateau. From innovation theory, it frames the live debate about where we are on transformer scaling: some labs insist we are still in the steep middle and capability gains will keep compounding, while others point to diminishing returns from the latest frontier models as evidence the plateau is close.
 
 **Sandboxing**
 
-Isolating risky behavior in a controlled environment. From security engineering and game design, it's central to agent safety: constraining tool use, limiting code execution, and testing new model behaviors with minimal blast radius.
+Isolating risky behavior in a controlled environment. From security engineering and game design, it shows up literally in every production AI agent: Claude Code's permission system blocks file writes outside an approved directory by default, OpenAI's code interpreter runs user code inside an isolated container, and browser-agent products route clicks through remote Chromium instances so the agent cannot touch the user's actual machine.
 
 **Schelling Point**
 
@@ -121,19 +121,19 @@ The tendency to underestimate or ignore tedious, unglamorous work that actually 
 
 **Systems Thinking**
 
-Understanding behavior by analyzing the entire interacting system. From cybernetics and organizational theory, it's essential for AI because models behave differently when embedded inside agents, tools, incentives, or multi-model ecosystems.
+Understanding behavior by analyzing the entire interacting system. From cybernetics and organizational theory, it shows up when a model that ran fine in isolation starts producing subtly worse outputs after being wrapped in a tool-using agent, because the new failure modes come not from the model itself but from how it interacts with retries, tool outputs, and partial context. Debugging the model alone gets you nowhere.
 
 **Type Two Fun**
 
-Miserable while it happens but meaningful in hindsight. From mountaineering culture, it's the unofficial description of long refactors, safety evaluations, and late-night deploys.
+Miserable while it happens but meaningful in hindsight. From mountaineering culture, it's the unofficial description of the weeklong refactor to rewrite a working prompt because someone insisted on structured outputs, the all-night eval run that reveals your model regressed on an edge case, and the two-day debugging of an agent that worked perfectly in dev and broke the moment real users touched it.
 
 **Yak Shaving**
 
-Getting stuck doing a chain of small tasks before you can start the real task. Originating at the MIT AI Lab, it's the daily reality of AI infra work: each dependency reveals ten more.
+Getting stuck doing a chain of small tasks before you can start the real task. Originating at the MIT AI Lab, it's the lived reality of AI infra work: you set out to add a new eval, which requires updating the harness, which fails because a dependency bumped its API, which now needs a Python version upgrade, which breaks three other tools in your stack, all before you have touched the thing you actually meant to do.
 
 **Zero-Shot / One-Shot / Few-Shot**
 
-Prompting with no examples, one example, or a small handful. From early LLM research, these terms became the shorthand for how models generalize, mimic style, and perform structured tasks without fine-tuning.
+Prompting with no examples, one example, or a small handful. From early LLM research, they show up in every serious model evaluation: zero-shot results are treated as the purest measure of a model's raw capability, while few-shot prompting is what production systems actually use because worked examples in the prompt reliably beat fine-tuning for formatting and tone.
 
 **Closing**
 
